@@ -3,7 +3,6 @@ echo "INFO: Entering script $0"
 set -o errexit
 set -o nounset
 
-pwd
 . infograsper.properties
 echo "DEBUG: Document root dir = $doc_root_dir"
 
