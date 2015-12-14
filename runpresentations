@@ -1,0 +1,65 @@
+#!/bin/bash
+
+##Variables
+blackScreenPID=""
+dirScript=$(pwd)
+echo $dirScript
+
+##cd ~/presentation_media
+cd $dirScript/../presentation_media
+dirMedia=$(pwd)
+echo $dirMedia
+
+##Activate black screen
+eog $dirScript/black.png -f &
+blackScreenPID=$(pidof eog)
+echo $blackScreenPID
+sleep 5
+
+
+while true; do
+	FILES=$dirMedia
+	for f in $FILES
+	do
+		appToKill=""
+	
+		if [ $f == *odp ]; 
+		then
+			## Start presentation	
+			soffice --show --nologo --norestore $f &
+			appToKill=$(pidof soffice)
+			echo "Step1:$appToKill"
+		else
+			eog $dirScript/capgemini.jpg -f &
+			appToKill=$(pidof eog)
+			echo "Step2:$appToKill"
+		fi
+		
+		arr=$(echo $appToKill | tr " " "\n")
+                for x in $arr
+                do
+                    if [ "$x" -ne "$blackScreenPID" ];
+                    then
+                        appToKill=$x
+                    fi
+                done
+		echo "Step3:$appToKill"
+	
+		## Kill black screen
+		sleep 10
+		echo "Step4:$blackScreenPID"
+		kill $blackScreenPID
+
+		## Presentation over, activate black screen
+		sleep 10
+		eog $dirScript/black.png -f &
+		blackScreenPID=$(pidof eog)
+		echo "Step5:$blackScreenPID"
+
+		## Stop presentation
+		sleep 5
+		echo "Step6:$appToKill"
+		pkill $appToKill	
+	done
+done
+
