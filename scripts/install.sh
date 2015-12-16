@@ -11,9 +11,12 @@ if [[ "$EUID" -eq 0 ]]; then
    exit 1
 fi
 
+## Define home
+home=/home/$(whoami)
+
 ## Create git dir, if it does not already exist
 ## NB! Cannot get the "magic" ~ to work as a user home substitute, so hardcoding the path to the "pi" user:
-githome="/home/pi/git"
+githome="$home/git"
 [ -d "$githome" ] || mkdir $githome
 
 ## Load latest version of application from git repo
@@ -21,7 +24,8 @@ cd $githome
 git --git-dir=$githome clone https://github.com/mogranlu/InfoGrasper.git
 
 ## Add some extra aliases
-echo -n ". $githome/InfoGrasper/scripts/my_aliases" >> ~/.bashrc
+echo " " >> $home/.bashrc
+echo ". $githome/InfoGrasper/scripts/my_aliases" >> ~/.bashrc
 
 ## Set correct locale on keyboard (input map)
 ## These do not work as intended (fix later!)
