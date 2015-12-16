@@ -31,7 +31,7 @@ sudo localectl set-x11-keymap no
 sudo apt-get update
 sudo apt-get upgrade
 
-sudo echo -n ${myhostname} > /etc/hostname
+sudo echo -n "infoskjerm1" > /etc/hostname
 
 ## Some of the changes need a reboot (keyboard input map and hostname)
 #sudo shutdown -r 'now'
