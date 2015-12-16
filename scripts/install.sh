@@ -35,7 +35,7 @@ echo ". $githome/.my_aliases" >> $home/.bashrc
 
 ## Update and upgrade OS to latest version
 sudo apt-get update
-sudo apt-get upgrade
+sudo apt-get -y upgrade
 
 sudo sh -c 'echo "infoskjerm1" > /etc/hostname'
 
