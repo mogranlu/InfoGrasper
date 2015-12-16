@@ -24,8 +24,9 @@ git --git-dir=$githome clone https://github.com/mogranlu/InfoGrasper.git
 echo -n ". $githome/InfoGrasper/scripts/my_aliases" >> ~/.bashrc
 
 ## Set correct locale on keyboard (input map)
-sudo localectl set-keymap no106
-sudo localectl set-x11-keymap no
+## These do not work as intended (fix later!)
+#sudo localectl set-keymap no106
+#sudo localectl set-x11-keymap no
 
 ## Update and upgrade OS to latest version
 sudo apt-get update
