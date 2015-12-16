@@ -24,8 +24,9 @@ cd $githome
 git --git-dir=$githome clone https://github.com/mogranlu/InfoGrasper.git
 
 ## Add some extra aliases
+cp $githome/InfoGrasper/scripts/.my_aliases $home
 echo " " >> $home/.bashrc
-echo ". $githome/InfoGrasper/scripts/my_aliases" >> ~/.bashrc
+echo ". $githome/.my_aliases" >> $home/.bashrc
 
 ## Set correct locale on keyboard (input map)
 ## These do not work as intended (fix later!)
