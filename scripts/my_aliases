@@ -4,8 +4,8 @@ alias la='ls -A'
 alias l='ls -CF'
 
 #Git aliases
-echo -n "alias gs='echo git status;git status'" >> ~/.bashrc
-echo -n "alias ga='echo git add;git add'" >> ~/.bashrc
-echo -n "alias gc='echo git commit -m;git commit -m'" >> ~/.bashrc
-echo -n "alias gpull='echo git pull;git pull'" >> ~/.bashrc
-echo -n "alias gpush='echo git push;git push'" >> ~/.bashrc
+alias gs='echo git status;git status'
+alias ga='echo git add;git add'
+alias gc='echo git commit -m;git commit -m'
+alias gpull='echo git pull;git pull'
+alias gpush='echo git push;git push'
