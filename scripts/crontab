@@ -1,0 +1,4 @@
+## Crontab (crontab -e)
+## Starts the kiosk (info display at 7:00 AM , and shuts it down at 23:59 (PM)
+0 7 * * *	export FRAMEBUFFER=/dev/fb0 DISPLAY=:0 && sudo fbi -d /dev/fb0 -T 1 -autozoom -noverbose -timeout 15 /home/pi/Pictures/*/*
+59 23 * * *	sudo kill $( ps aux | grep -v grep | grep fbi | awk '{ print $2 }' )
