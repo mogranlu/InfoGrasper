@@ -16,7 +16,7 @@ for nextFile in $(ls ${output_dir})
 do
    ## Present next file (slideshow) in the output dir:
    echo "Presenting ${nextFile}..."
-   soffice --show --nologo --norestore ${output_dir}/${nextFile} &
+   soffice --show --nologo --norestore "${output_dir}/${nextFile}" &
 
    ## Try to get the process ID (PID) of this presentation (we give libreoffice some seconds to get up and running)
    sleep 3s && presentationPID=$(pidof soffice.bin)
